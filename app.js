@@ -5,8 +5,6 @@ const graphqlSchema = require('./graphql/schemas/index');
 const graphqlResolvers = require('./graphql/resolvers/index');
 const mongoose = require('mongoose');
 
-
-
 const app = express();
 
 const mongoDB = 'mongodb://127.0.0.1/Graphql';
