@@ -27,7 +27,7 @@ const eventSchema = new Schema({
 });
 
 // model is like a blue print
-const Event = mongoose.model('Event',eventSchema);
+module.exports = mongoose.model('Event',eventSchema);
 
-exports.Event = Event;
+
 
