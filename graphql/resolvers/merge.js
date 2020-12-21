@@ -17,9 +17,7 @@ const getEvents = async (eventIds) => {
 
 const getUser = async (userId) => {
   try {
-    console.log("user",userId);
     var temp = await User.findById(userId);
-    console.log("GetuSER",temp);
     let b = { ...temp._doc, createdEvents: getEvents.bind(this, temp.createdEvents), password: "Password saved successfully" };
     return b;
   } catch (err) {
@@ -41,7 +39,6 @@ const getSingleEvent = async eventId => {
 
 
 const transformEvent = (myCustomEvent) => {
-  console.log("TransformEvent",myCustomEvent);
   return {
     ...myCustomEvent._doc,
     creator: getUser.bind(this, myCustomEvent.creator),

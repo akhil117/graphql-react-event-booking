@@ -4,6 +4,7 @@ const graphqlHttp = require('express-graphql').graphqlHTTP;
 const graphqlSchema = require('./graphql/schemas/index');
 const graphqlResolvers = require('./graphql/resolvers/index');
 const mongoose = require('mongoose');
+const isAuth = require('./middlewares/is-auth');
 
 const app = express();
 
@@ -13,6 +14,7 @@ mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch(err => console.error('not able to connect '));
 
 app.use(bodyParser.json());
+app.use(isAuth);
 
 
 // manual population
