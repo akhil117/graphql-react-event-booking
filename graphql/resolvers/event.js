@@ -20,9 +20,9 @@ module.exports = {
         description: args.event.description,
         date: new Date(args.event.date),
         price: args.event.price,
-        creator: "5fdf650aca6fc36c68fa3ed4"
+        creator: req.userId
       });
-      const user = await User.findById("5fdf650aca6fc36c68fa3ed4")
+      const user = await User.findById(req.userId)
 
       if (!user) {
         throw Error("User Not found")
